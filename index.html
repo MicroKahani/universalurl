@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting to Microkahani App</title>
+  <script>
+    window.onload = function() {
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      var isAndroid = /android/i.test(userAgent);
+      var isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+      var isWindows = /windows nt/i.test(userAgent);
+      var isMac = /macintosh|mac os x/i.test(userAgent);
+      if (isAndroid || isWindows) {
+        window.location.href = "https://play.google.com/store/apps/details?id=com.microkahani";
+      } else if (isIOS || isMac) {
+        window.location.href = "https://apps.apple.com/in/app/microkahani/id6759392131";
+      } else {
+        document.getElementById('fallback').style.display = 'block';
+      }
+    };
+  </script>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+    #fallback { display: none; }
+  </style>
+</head>
+<body>
+  <h2>Redirecting you to the Microkahani App...</h2>
+  <div id="fallback">
+    <p>If you are not redirected, please choose your platform:</p>
+    <a href="https://play.google.com/store/apps/details?id=com.microkahani">Android (Google Play)</a><br>
+    <a href="https://apps.apple.com/in/app/microkahani/id6759392131">iOS (App Store)</a>
+  </div>
+</body>
+</html>
